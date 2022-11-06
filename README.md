@@ -14,3 +14,7 @@ Dependencias:
     npm install express@4
 
     npm install socket.io
+
+Como usarlo:
+
+    Si no escribes en el input de la derecha del todo abajo significa que es un mensaje general para todos, si escribes el nombre de algún usuario conectado se enviara un mensaje privado a tal usuario.

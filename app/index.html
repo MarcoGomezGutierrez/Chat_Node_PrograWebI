@@ -28,6 +28,8 @@
 
         var form = document.getElementById('form');
         var input = document.getElementById('input');
+        
+        //Input del destino, vacio escribe al general, si pones el nombre de usuario de alguien envia mensaje privado a tal usuario
         var private = document.getElementById('private');
 
 
@@ -35,10 +37,9 @@
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             if (input.value) {
-                if (private.value) {
-                    console.log("Dentro del privado");
-                    socket.emit(private.value, 'privado de <' + socket.user + '> ' + input.value);
-                } else {
+                if (private.value) { //Enviar mensaje privado
+                    socket.emit('private', private.value, 'privado de <' + socket.user + '> para <' + private.value + '> ' + input.value);
+                } else { // Enviar mensaje general
                     socket.emit('chat message', input.value);
                 }
                 input.value = '';
