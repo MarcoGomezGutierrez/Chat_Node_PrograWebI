@@ -27,13 +27,9 @@ function userNotExist(userName, socketID) {
             name: userName,
             id: socketID
         });
-        appendUser(userName);
+        usersName.push(userName);
     }
     return result;
-}
-
-function appendUser(userName) {
-    usersName.push(userName);
 }
 
 // Eliminar el usuario del servidor cuando se salga
@@ -111,16 +107,11 @@ io.on('connection', (socket) => {
             console.log("No existe tal usuario: <" + user + ">");
         }
     });
-
-    //Privado a una persona en concreto
-    /*socket.on('private', (user, msg) => {
-        console.log("Hola priavte")
-        io.emit('chat message', 'privado de <' + socket.user + '> ' + msg);
-    });*/
 });
 
 const port = 8000;
 
-server.listen(port, () => {
-  console.log(`Socket.IO server running at http://localhost:${port}/`);
+// Conexion del server, 0.0.0.0 para que todos los que sepan la ip del server se puedan conectar
+server.listen(port, '0.0.0.0', () => {
+    console.log(`Socket.IO server running at http://localhost:${port}/`);
 });
