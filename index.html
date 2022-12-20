@@ -14,6 +14,8 @@
       #messages > li { padding: 0.5rem 1rem; }
       #messages > li:nth-child(odd) { background: #efefef; }
     </style>
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" href="./icono.png" />
   </head>
   <body>
     <ul id="messages"></ul>
@@ -66,6 +68,15 @@
             messages.appendChild(item);
             window.scrollTo(0, document.body.scrollHeight);
         });
+
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", function() {
+              navigator.serviceWorker
+                .register("/serviceWorker.js")
+                .then(res => console.log("service worker registered"))
+                .catch(err => console.log("service worker not registered", err))
+          })
+        }
     </script>
   </body>
   

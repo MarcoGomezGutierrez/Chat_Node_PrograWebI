@@ -5,6 +5,7 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 const {inspect} = require('util');
+app.use(express.static('.'));
 
 var users = [];
 var usersName = [];

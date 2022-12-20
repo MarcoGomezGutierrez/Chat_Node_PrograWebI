@@ -1,0 +1,16 @@
+{
+    "name": "ChatPWAMarcoGomez",
+    "short_name": "ChatMarco",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#fdfdfd",
+    "theme_color": "#db4938",
+    "orientation": "portrait-primary",
+    "icons": [
+      {
+        "src": "icono.png",
+        "type": "image/png", "sizes": "225x225",
+        "purpose": "any"
+      }
+    ]
+  }
